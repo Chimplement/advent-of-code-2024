@@ -1,0 +1,50 @@
+if [[ $AOC -eq 1 ]]; then
+    return
+fi
+
+export PS1="$PS1(AoC) "
+AOC=1
+
+day() {
+    if [ -z $1 ]; then
+        date +%d
+    else
+        printf %02i $1 
+    fi
+}
+
+n() {
+    DIR=day$(day $1)
+    if mkdir $DIR; then
+        echo test
+    fi
+    if [ ! -f $DIR/solve.py ]; then
+        echo "" > $DIR/solve.py
+    fi
+    touch $DIR/input.txt
+    touch $DIR/example.txt
+}
+
+e() {
+    ./run $(day $1) e
+}
+
+we() {
+    watch ./run $(day $1) e
+}
+
+r() {
+    ./run $(day $1)
+}
+
+wr() {
+    watch ./run $(day $1)
+}
+
+wa() {
+    watch "./run $(day $1) e && ./run $(day $1)"
+}
+
+exit() {
+    exec $SHELL
+}
