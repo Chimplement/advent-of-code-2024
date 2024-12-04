@@ -16,13 +16,19 @@ day() {
 n() {
     DIR=day$(day $1)
     if mkdir $DIR; then
-        echo test
+        echo "input = open(0).read();
+
+def check(l: list[int]) -> bool:
+    return True
+
+a = 0
+b = 0
+
+print(a, b)
+" > $DIR/solve.py
+        touch $DIR/input.txt
+        touch $DIR/example.txt
     fi
-    if [ ! -f $DIR/solve.py ]; then
-        echo "" > $DIR/solve.py
-    fi
-    touch $DIR/input.txt
-    touch $DIR/example.txt
 }
 
 e() {
